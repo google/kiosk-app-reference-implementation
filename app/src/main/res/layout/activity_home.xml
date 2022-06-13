@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Copyright 2022 Google LLC
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".ui.home.HomeActivity">
+
+  <com.google.android.material.appbar.AppBarLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.appbar.MaterialToolbar
+      android:id="@+id/materialToolbar"
+      style="@style/Widget.MaterialComponents.Toolbar.Primary"
+      android:layout_width="match_parent"
+      android:layout_height="?attr/actionBarSize"
+      app:title="@string/main_title" />
+
+  </com.google.android.material.appbar.AppBarLayout>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <FrameLayout
+      android:id="@+id/frameLayoutPaymentDue"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/green"
+      android:paddingStart="16dp"
+      android:paddingTop="24dp"
+      android:paddingEnd="16dp"
+      android:paddingBottom="24dp"
+      app:layout_constraintTop_toTopOf="parent">
+
+      <TextView
+        android:id="@+id/textViewPaymentDue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="@string/x_payment_due_in_y_days"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        tools:text="$50 Payment due in 7 days" />
+
+      <Button
+        android:id="@+id/buttonPayNow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:backgroundTint="@color/blue_dark"
+        android:gravity="center_vertical"
+        android:text="@string/pay_now" />
+
+    </FrameLayout>
+
+    <LinearLayout
+      android:id="@+id/linearLayoutDeviceStatus"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:paddingStart="16dp"
+      android:paddingTop="16dp"
+      android:paddingEnd="16dp"
+      android:paddingBottom="8dp"
+      app:layout_constraintTop_toBottomOf="@+id/frameLayoutPaymentDue"
+      tools:ignore="UseCompoundDrawables">
+
+      <ImageView
+        android:id="@+id/imageViewDeviceStatus"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:contentDescription="@string/phone"
+        android:src="@drawable/ic_baseline_phonelink_ring_24"
+        app:tint="@color/green" />
+
+      <TextView
+        android:id="@+id/textViewDeviceStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:text="@string/device_unlocked"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+      <TextView
+        android:id="@+id/textViewTotalCost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="end"
+        android:textColor="@color/grey"
+        android:textSize="16sp"
+        tools:ignore="RelativeOverlap"
+        tools:text="Total Cost $536.00" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+      android:id="@+id/relativeLayoutPaid"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:paddingStart="16dp"
+      android:paddingTop="8dp"
+      android:paddingEnd="16dp"
+      android:paddingBottom="16dp"
+      app:layout_constraintTop_toBottomOf="@+id/linearLayoutDeviceStatus">
+
+      <TextView
+        android:id="@+id/textViewPaid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/green"
+        android:textSize="23sp"
+        tools:text="Paid $354.00" />
+
+      <TextView
+        android:id="@+id/textViewRemaining"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textViewPaid"
+        android:layout_alignBottom="@+id/textViewPaid"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="8dp"
+        android:gravity="center_vertical"
+        android:textColor="@color/grey"
+        android:textSize="16sp"
+        tools:ignore="RelativeOverlap"
+        tools:text="Remaining $182.00" />
+
+      <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressIndicatorOwedNow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewPaid"
+        android:layout_marginTop="12dp"
+        android:progress="50"
+        app:indicatorColor="@color/red"
+        app:trackColor="@color/grey_light" />
+
+      <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressIndicatorPaid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewPaid"
+        android:layout_marginTop="12dp"
+        android:progress="50"
+        app:indicatorColor="@color/green"
+        app:trackColor="@android:color/transparent" />
+
+    </RelativeLayout>
+
+    <View
+      android:id="@+id/viewDivider"
+      android:layout_width="match_parent"
+      android:layout_height="2dp"
+      android:background="@color/grey_light"
+      app:layout_constraintTop_toBottomOf="@+id/relativeLayoutPaid" />
+
+    <TextView
+      android:id="@+id/textViewNextPayment"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:padding="16dp"
+      android:textColor="@color/black"
+      android:textSize="17sp"
+      app:layout_constraintTop_toBottomOf="@+id/viewDivider"
+      tools:text="Next payment of $50 due: August 1, 2021" />
+
+    <TextView
+      android:id="@+id/textViewLastPayment"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:padding="16dp"
+      android:textColor="@color/black"
+      android:textSize="14sp"
+      app:layout_constraintTop_toBottomOf="@+id/textViewNextPayment"
+      tools:text="Last payment on July 1, 2021" />
+
+
+    <RelativeLayout
+      android:id="@+id/relativeLayoutMissingImei"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="@color/white"
+      android:visibility="gone">
+
+      <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:paddingStart="10dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="10dp"
+        android:text="@string/error_with_credit_plan_please_contact_your_provider"
+        android:textSize="25sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+      android:id="@+id/relativeLayoutLoading"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="@color/white">
+
+      <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progressBar"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="8dp"
+        android:text="@string/loading"
+        android:textSize="14sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+      android:id="@+id/relativeDeviceReleased"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="@color/white"
+      android:visibility="gone">
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:paddingTop="50dp"
+        android:text="@string/device_fully_paid"
+        android:textSize="50sp" />
+
+    </RelativeLayout>
+
+    <TextView
+      android:id="@+id/textViewInternetStatus"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="64dp"
+      android:padding="16sp"
+      android:text="@string/connect_to_internet"
+      android:textColor="@color/black"
+      android:textSize="20sp"
+      app:layout_constraintTop_toBottomOf="@+id/textViewLastPayment"
+      tools:layout_editor_absoluteX="0dp" />
+
+    <Button
+      android:id="@+id/buttonInternetSetting"
+      style="?attr/materialButtonOutlinedStyle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="80dp"
+      android:text="@string/internet_setting"
+      android:textColor="#1976D2"
+      app:icon="@drawable/ic_baseline_settings_24"
+      app:iconTint="@color/grey"
+      app:layout_constraintBottom_toTopOf="@+id/linearLayoutCallAndSettings"
+      app:layout_constraintHorizontal_bias="0.497"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent" />
+
+    <LinearLayout
+      android:id="@+id/linearLayoutSupportAndRefresh"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="16dp"
+      android:orientation="horizontal"
+      app:layout_constraintBottom_toTopOf="@+id/linearLayoutCallAndSettings"
+      app:layout_constraintHorizontal_bias="0.493"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent">
+
+      <Button
+        android:id="@+id/buttonGetSupport"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@string/get_support"
+        android:textColor="@color/green"
+        app:icon="@drawable/ic_baseline_contact_support_24"
+        app:iconTint="@color/green" />
+
+      <Button
+        android:id="@+id/buttonRefresh"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/refresh"
+        android:textColor="@color/blue" />
+
+    </LinearLayout>
+
+    <LinearLayout
+      android:id="@+id/linearLayoutCallAndSettings"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="32dp"
+      android:orientation="horizontal"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent">
+
+      <Button
+        android:id="@+id/buttonMakeACall"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@string/make_a_call"
+        android:textColor="@color/blue"
+        app:icon="@drawable/ic_baseline_phone_24"
+        app:iconTint="@color/blue" />
+
+      <Button
+        android:id="@+id/buttonSettings"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/settings"
+        android:textColor="@color/grey"
+        app:icon="@drawable/ic_baseline_settings_24"
+        app:iconTint="@color/grey" />
+
+    </LinearLayout>
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

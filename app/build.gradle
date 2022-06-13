@@ -1,0 +1,90 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "com.google.gms.google-services"
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.ape.apps.sample.baypilot"
+        minSdk 30
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+    implementation "androidx.core:core-ktx:1.7.0"
+
+    implementation "androidx.appcompat:appcompat:1.4.1"
+
+    implementation "androidx.activity:activity-ktx:1.4.0"
+
+    implementation "androidx.constraintlayout:constraintlayout:2.1.3"
+
+    // Material Components
+    implementation "com.google.android.material:material:1.5.0"
+
+    // Jetpack ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.4.0"
+
+    // Jetpack WorkManager
+    implementation "androidx.work:work-runtime-ktx:2.7.1"
+
+    // Firebase Android BoM (Bill of Materials)
+    implementation platform("com.google.firebase:firebase-bom:29.0.0")
+
+    // Firebase Analytics
+    implementation "com.google.firebase:firebase-analytics-ktx"
+
+    // Firebase Cloud Messaging
+    implementation "com.google.firebase:firebase-messaging-ktx"
+
+    // Firebase Realtime Database
+    implementation "com.google.firebase:firebase-database-ktx"
+
+    // Firebase Authentication library
+    implementation 'com.google.firebase:firebase-auth-ktx'
+
+    // Jetpack WorkManager
+    implementation "androidx.work:work-runtime-ktx:2.7.1"
+
+    // Kotlinx Coroutines Play Services
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.0-RC"
+
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0"
+
+    implementation "com.google.code.gson:gson:2.8.6"
+
+    testImplementation "junit:junit:4.13.2"
+
+    androidTestImplementation "androidx.test.ext:junit:1.1.3"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.4.0"
+}

@@ -1,0 +1,87 @@
+<!--
+ Copyright 2022 Google LLC
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+
+<resources>
+  <string name="app_name">Bay Pilot</string>
+
+  <!-- Home -->
+  <string name="main_title">Creditor Bay Pilot</string>
+
+  <string name="welcome">Welcome</string>
+
+  <string name="loading">Loading...</string>
+
+  <string name="due_in">$%d due in %s</string>
+  <string name="overdue_by">$%d overdue by %s</string>
+  <string name="installment_due_on">Installment of $%d is due on %s</string>
+  <string name="installment_was_due_on">Installment of $%d was due on %s</string>
+  <string name="hours">hours</string>
+  <string name="days">days</string>
+  <string name="x_payment_overdue_y_days">$%d Payment overdue %d days</string>
+  <string name="x_payment_due_in_y_days">$%d Payment due in %d days</string>
+  <string name="no_additional_payment_due">No additional payment due</string>
+
+  <string name="pay_now">Pay now</string>
+
+  <string name="connect_to_internet">Your Device is Offline.
+    Please Connect to Internet to get latest update.</string>
+
+  <string name="connect_to_internet_welcome">Please connect to Internet</string>
+
+  <string name="phone">phone</string>
+  <string name="device_unlocked">Device unlocked</string>
+  <string name="device_locked_payment_overdue">Device locked - Payment overdue</string>
+  <string name="device_fully_paid">Credit fully paid</string>
+
+  <string name="total_cost">Total Cost $%d</string>
+  <string name="paid_so_far">Paid $%d</string>
+  <string name="remaining">Remaining $%d</string>
+
+  <string name="paid">$%,.2f</string>
+  <string name="total_owed">Paid of $%,.2f</string>
+
+  <string name="next_payment_of_x_due_date">Next payment of $%d due: %s</string>
+  <string name="payment_of_x_was_due_date">Payment of $%d was due: %s</string>
+  <string name="no_additional_payments_required">No additional payments required</string>
+
+  <string name="last_payment_on_date">Last payment on %s</string>
+
+  <string name="internet_setting">Connect to Internet</string>
+  <string name="get_support">Get Support</string>
+  <string name="make_a_call">Make a call</string>
+  <string name="settings">Settings</string>
+  <string name="refresh">Refresh</string>
+
+  <!-- Toast showing device is locked [CHAR_LIMIT=80] -->
+  <string name="toast_device_locked">Device is Locked</string>
+  <!-- Toast showing device is unlocked [CHAR_LIMIT=80] -->
+  <string name="toast_device_unlocked">Device is Unlocked</string>
+
+  <!-- Firebase Database Column Names -->
+  <string name="firebase_token_column">Firebase Token</string>
+  <string name="firebase_due_date_column">Due Date</string>
+  <string name="firebase_total_amount_column">Total Amount</string>
+  <string name="firebase_paid_amount_column">Paid Amount</string>
+  <string name="firebase_next_installment_amount_column">Next Installment Amount</string>
+
+  <!--  Due Notification Strings-->
+  <string name="general_notification_message">Phone installment due date in few days</string>
+  <!--  TODO: Update message to show time left to pay-->
+  <string name="_detailed_notification_message">Phone installment is due in %s on %s</string>
+  <string name="notification_title">Payment Due</string>
+  <string name="error_with_credit_plan_please_contact_your_provider">Error with Credit Plan. Please contact your provider.</string>
+
+</resources>
