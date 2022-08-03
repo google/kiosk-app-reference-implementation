@@ -1,11 +1,18 @@
 # Kiosk app reference implementation
 
-The app is available at <link to partner repo / github repo> (TODO: bdeepankar)  
-Please reach out to your Google poc if you have any questions.
+This is a reference implementation of DLC Kiosk app, intended to help Android
+ecosystem partners (carriers, OEMs, SIs) understand how to integrate their own
+Kiosk app with DLC APIs. It serves both as a sample Kiosk app and as a testing &
+development application for DLC APIs. It supports devices running Android 11.0
+and above.
 
-### Get the code
+### Getting started
 
-Clone the repo from <insert github link>
+-  You can directly import this repo into Android Studio or download/clone
+    it and build using `gradle`
+-  You will need an Android 12 device or a DLC compatible Android 11 device
+
+You can find more information about DLC in the partner documentation at https://docs.partner.android.com/gms/building/integrating/device-lock & https://docs.partner.android.com/gms/building/integrating/device-lock/requirements
 
 ### Prepare
 
@@ -84,7 +91,12 @@ Code tool of your choice,
 
 #### ZeroTouch
 
-Please contact your Google poc for more information on testing on ZeroTouch.
+-  You need to sign an Android Enterprise ZeroTouch agreement to obtain
+    access to the ZeroTouch portal. 
+-  Once you have access to the ZeroTouch portal, you can enroll your
+    device's IMEI and add the configuration in the portal. 
+-  After that, factory reset the device and set up as usual to trigger DLC
+    provisioning.
 
 ### Features
 
@@ -97,12 +109,22 @@ The sample Kiosk app demonstrates the following features:
 1. Locking / Unlocking capabilities
 1. Show Notifications per device lock guidelines
 
+### Support
+
+If you've found an error in this sample, please file an issue:
+https://github.com/google/kiosk-app-reference-implementation/issues  
+Patches are encouraged, and may be submitted by forking this project and
+submitting a pull request through GitHub.
+
+### License
+
+The code is published under Apache License 2.0. See LICENSE.md for details
+
+### How to make contributions?
+
+Please read and follow the steps in the CONTRIBUTING.md file.
+
 ### Disclaimer
 
-This is not an official Google project. It is meant to demonstrate
-the usage of DLC APIs to partners and help them speed up their kiosk app
-development.  
-If you plan to incorporate the features demonstrated, please carefully review
-the code and proceed at your own risk. See LICENSE.md for terms and conditions.
-The code is published under Apache License 2.0. We are currently not accepting
-any contributions.
+This is not an official Google project. If you plan to incorporate the features
+demonstrated, please carefully review the code and proceed at your own risk. 
